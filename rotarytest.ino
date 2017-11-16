@@ -10,7 +10,11 @@ void loop()
 {
   rotarySwitch.update();
   if (rotarySwitch.hasBeenTurned()) {
-    Serial.println(rotarySwitch.getDirection() == 1 ? "Clockwise" : "Counter clockwise");
+    Serial.println(
+      rotarySwitch.getDirection() == RotarySwitch::CLOCKWISE 
+        ? "Clockwise" 
+        : "Counter clockwise"
+    );
   }
   
   delay(5);

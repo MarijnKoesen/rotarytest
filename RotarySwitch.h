@@ -9,6 +9,10 @@ class RotarySwitch
 		bool hasBeenTurned();
 		int getDirection();
 
+    static const int COUNTER_CLOCKWISE = -1;
+    static const int NOT_TURNED = 0;
+    static const int CLOCKWISE = 1;
+
 	private:
     int pinA;
     int pinB;

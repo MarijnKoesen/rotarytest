@@ -32,15 +32,13 @@ bool RotarySwitch::hasBeenTurned()
 int RotarySwitch::getDirection()
 {
   if (!hasBeenTurned()) {
-    return 0;
+    return NOT_TURNED;
   }
      
-  // If we have 00 or 11, check if the first pin has changed
-  // if so, we are shifting left, and thus cw
   if (previousState[0] == previousState[1]) {
-    return previousState[0] == currentState[0] ? 1 : -1;
+    return previousState[0] == currentState[0] ? CLOCKWISE : COUNTER_CLOCKWISE;
   }
 
   // In the otherc ase we check which way the last character moved
-  return previousState[1] == currentState[0] ? 1 : -1;
+  return previousState[1] == currentState[0] ? CLOCKWISE : COUNTER_CLOCKWISE;
 }
